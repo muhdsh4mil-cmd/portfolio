@@ -68,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeElements = document.querySelectorAll('.fade-in-up');
     fadeElements.forEach(el => observer.observe(el));
 
+
     // Contact Form Handling with EmailJS
     const form = document.getElementById('contact-form');
 

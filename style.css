@@ -536,29 +536,36 @@ header {
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.skill-full-width {
+    grid-column: 1 / -1;
 }
 
 .skill-category {
     background: var(--white);
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f1f5f9;
     transition: var(--transition);
 }
 
 .skill-category:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
 .skill-category h3 {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: 1rem;
+    margin-bottom: 18px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     color: var(--primary-color);
+    font-weight: 600;
 }
 
 .skill-items {
@@ -568,13 +575,33 @@ header {
 }
 
 .skill-tag {
-    background: var(--background-light);
+    background: var(--white);
+    color: var(--text-color);
     padding: 6px 14px;
     border-radius: 20px;
-    font-size: 0.85rem;
+    font-size: 0.83rem;
     font-weight: 500;
-    border: 1px solid #e2e8f0;
+    border: 1px solid #d1d5db;
+    transition: all 0.2s ease;
 }
+
+.skill-tag:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+@media (max-width: 900px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 580px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Experience Section */
 .timeline {
@@ -699,76 +726,202 @@ header {
     margin-bottom: 20px;
 }
 
-/* Contact Section */
-.contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 50px;
-    max-width: 900px;
-    margin: 0 auto;
+/* Contact Section — New Clean Layout */
+.contact-light {
+    background-color: var(--background-color);
 }
 
-.info-item {
+.contact-title {
+    color: var(--heading-color);
+}
+
+.contact-title::after {
+    background-color: #c0392b;
+}
+
+.contact-wrapper-new {
+    display: grid;
+    grid-template-columns: 1fr 1.8fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Left panel */
+.contact-info-new {
+    padding-top: 10px;
+}
+
+.contact-tagline {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--heading-color);
+    margin-bottom: 10px;
+}
+
+.contact-sub {
+    font-size: 0.9rem;
+    color: var(--text-color);
+    margin-bottom: 35px;
+    line-height: 1.6;
+}
+
+.info-item-new {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.info-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    font-size: 1.1rem;
+    justify-content: center;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+    margin-top: 2px;
 }
 
-.info-item i {
-    color: var(--primary-color);
-    /* Note: on dark bg this might need adjustment, but bg-accent handles text-white */
+.info-item-new .info-label {
+    display: block;
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-bottom: 2px;
 }
 
-/* Override icon color for accent bg section */
-.bg-accent .info-item i {
-    color: #60a5fa;
-    /* Lighter blue for dark background */
+.info-item-new strong {
+    font-size: 0.95rem;
+    color: var(--heading-color);
+    font-weight: 700;
 }
 
-.social-links {
-    margin-top: 40px;
+.social-links-new {
     display: flex;
-    gap: 20px;
+    gap: 12px;
+    margin-top: 35px;
 }
 
-.social-links a {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.7);
+.social-links-new a {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #cbd5e1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    color: var(--text-color);
     transition: var(--transition);
 }
 
-.social-links a:hover {
+.social-links-new a:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
     color: var(--white);
-    transform: translateY(-3px);
+    transform: translateY(-2px);
 }
 
-.form-group {
+/* Right form panel */
+.contact-form-new {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
     margin-bottom: 20px;
 }
 
-.form-group input,
-.form-group textarea {
+.form-group-new {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group-new label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 8px;
+}
+
+.req {
+    color: #e74c3c;
+}
+
+.form-group-new input,
+.form-group-new select,
+.form-group-new textarea {
     width: 100%;
-    padding: 12px 15px;
+    padding: 11px 14px;
+    border: 1px solid #e2e8f0;
     border-radius: 6px;
-    border: none;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
     font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    background: var(--white);
+    transition: border-color 0.2s ease;
+    outline: none;
+    appearance: auto;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: rgba(255, 255, 255, 0.6);
+.form-group-new input::placeholder,
+.form-group-new textarea::placeholder {
+    color: #b0bec5;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
-    outline: 2px solid var(--primary-color);
-    background: rgba(255, 255, 255, 0.2);
+.form-group-new input:focus,
+.form-group-new select:focus,
+.form-group-new textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
+
+.form-row .form-group-new {
+    margin-bottom: 0;
+}
+
+.btn-send {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 26px;
+    background: transparent;
+    border: 1.5px solid var(--heading-color);
+    color: var(--heading-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    align-self: flex-start;
+}
+
+.btn-send:hover {
+    background: var(--heading-color);
+    color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contact-wrapper-new {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 
 /* Footer */
 footer {
